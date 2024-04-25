@@ -45,9 +45,10 @@ namespace HeroApp.Controllers;
             var maxId = HeroDataStore.Current.Heroes.Max(h=>h.Id);
             var newHero = new Hero()
             {
-                Id = maxId+1,
+                Id = maxId + 1,
                 Name = inputHero.InputName,
                 HeroName = inputHero.InputHeroName,
+                SuperPowers = new List<SuperPower>()
             };
 
            HeroDataStore.Current.Heroes.Add(newHero);
@@ -62,7 +63,7 @@ namespace HeroApp.Controllers;
             /*Break it down:
 
              return CreatedAtAction(nameOf(Action Method responsible for the response), route data response, new object)
-
+             
 
              */
             return CreatedAtAction(nameof(GetHero), 
@@ -72,7 +73,7 @@ namespace HeroApp.Controllers;
     }
     [HttpPut("{heroId}")]
 
-    public ActionResult<Hero> PutHero(int heroId, InputHero inputHero)
+    public ActionResult<Hero> PutHero([FromRoute]int heroId, [FromBody]InputHero inputHero)
     {
         //Hero contains the desire Id
         var hero = HeroDataStore.Current.Heroes.FirstOrDefault(h=>h.Id==heroId);
