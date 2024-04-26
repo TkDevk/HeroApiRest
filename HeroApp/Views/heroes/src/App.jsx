@@ -1,16 +1,12 @@
 import './App.css'
-import Boton from './features/components/Boton'
-import EditInputTextHero from './features/components/InputTextHero'
-import InputTextHero from './features/components/InputTextPower'
+import InputHero from './features/components/inputHero'
 
 function App() {
  
 
   return (
     <>
-       <EditInputTextHero/>
-       <InputTextHero/>
-       <Boton/>
+      <InputHero/>
     </>
   )
 }
