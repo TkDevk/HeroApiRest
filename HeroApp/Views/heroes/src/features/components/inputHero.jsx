@@ -11,6 +11,10 @@ const InputHero = () => {
   });
   const onSubmitForm = async (e) => {
     e.preventDefault();
+    if(inputData.inputHeroName=="" && inputData.inputHeroName=="" &&inputData.inputHeroName==""){
+        console.log("please full all the spaces");
+    }else{
+    
     try {
       const response = await axios.get(BASEURL);
       setIsId(response.data);
@@ -29,7 +33,7 @@ const InputHero = () => {
         }).catch(err=>console.log(err));
     } catch (error) {
       console.log(error);
-    }
+    }}
   };
 
   const handleInput = (e) => {
@@ -44,6 +48,7 @@ const InputHero = () => {
 
   return (
     <>
+    
       <form
         onSubmit={onSubmitForm}
         style={{ display: "flex", flexDirection: "column", gap: ".5rem" }}
